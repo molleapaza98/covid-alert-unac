@@ -40,7 +40,7 @@ public class ProvinceRest {
     }
 
     //-------------------Retrieve Single Province--------------------------------------
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/province/{id}")
     public ResponseEntity<Province> getCustomer(@PathVariable Long id){
         Province customer = service.getProvinceById(id);
         if(customer==null){
