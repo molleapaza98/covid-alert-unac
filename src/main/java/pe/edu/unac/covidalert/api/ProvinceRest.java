@@ -30,8 +30,8 @@ public class ProvinceRest {
     }
 
     //-------------------Retrieve All Province--------------------------------------
-    @GetMapping(value = "/province")
-    public ResponseEntity<List<Province>> listAllCustomers(){
+    @GetMapping(value = "/provinces")
+    public ResponseEntity<List<Province>> listAllProvince(){
         List<Province> provinces = service.getAllProvinces();
         if(provinces.isEmpty()){
             return ResponseEntity.notFound().build();
@@ -40,8 +40,8 @@ public class ProvinceRest {
     }
 
     //-------------------Retrieve Single Province--------------------------------------
-    @GetMapping(value = "/province/{id}")
-    public ResponseEntity<Province> getCustomer(@PathVariable Long id){
+    @GetMapping(value = "/provinces/{id}")
+    public ResponseEntity<Province> getProvince(@PathVariable Long id){
         Province customer = service.getProvinceById(id);
         if(customer==null){
             log.error("Province with id {} not found.", id);
@@ -51,7 +51,7 @@ public class ProvinceRest {
     }
 
     //-------------------create a Province---------------------------------------------
-    @PostMapping(value = "/province")
+    @PostMapping(value = "/provinces")
     public ResponseEntity<Province> createProvince(@RequestBody Province province, BindingResult result) {
         log.info("Creating province : {}", province);
         if(result.hasErrors()){
@@ -62,8 +62,8 @@ public class ProvinceRest {
     }
 
     //-------------------Update a province---------------------------------------------
-    @PutMapping(value = "/province/{id}")
-    public ResponseEntity<Province> updateCustomer(@PathVariable Long id, @RequestBody Province province){
+    @PutMapping(value = "/provinces/{id}")
+    public ResponseEntity<Province> updateProvince(@PathVariable Long id, @RequestBody Province province){
         log.info("Updating Customer with id {}", id);
         Province currentProvince = service.getProvinceById(id);
         if (currentProvince == null){
@@ -74,8 +74,8 @@ public class ProvinceRest {
         return ResponseEntity.ok(currentProvince);
     }
 
-    @PutMapping(value = "province/{id}/todayCases/{quantity}")
-    public ResponseEntity<Province> updateStockProduct(@PathVariable Long id, @PathVariable Long quantity){
+    @PutMapping(value = "provinces/{id}/todayCases/{quantity}")
+    public ResponseEntity<Province> updateTodayCases(@PathVariable Long id, @PathVariable Long quantity){
         log.info("Update cases today : {} with quantity {}",id,quantity);
         Province province = service.getProvinceById(id);
         if (province == null){
@@ -88,8 +88,8 @@ public class ProvinceRest {
     }
 
     //-------------------Delete a Province---------------------------------------------
-    @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Province> deleteCustomer(@PathVariable Long id){
+    @DeleteMapping(value = "provinces/{id}")
+    public ResponseEntity<Province> deleteProvince(@PathVariable Long id){
         log.info("Fetching & Deleting Province with id {}", id);
         Province province = service.getProvinceById(id);
         if (province == null){
