@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: bdrbgatzaaaljz
+    password: 42769e1aab1080233bd5e8714861e463196e2f126900da892aa9271cf2874286
+    url: postgres://bdrbgatzaaaljz:42769e1aab1080233bd5e8714861e463196e2f126900da892aa9271cf2874286@ec2-34-197-141-7.compute-1.amazonaws.com:5432/dfd3sa0vuotdlc
+    platform: postgres
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    database: postgresql
