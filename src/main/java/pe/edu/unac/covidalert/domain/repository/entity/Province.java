@@ -1,9 +1,11 @@
 package pe.edu.unac.covidalert.domain.repository.entity;
 
 
+import lombok.Data;
 import javax.persistence.*;
 
 @Entity
+@Data
 @Table(name = "tbl_provinces")
 public class Province {
 
@@ -39,98 +41,4 @@ public class Province {
     @Column(name = "status")
     private String status;
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public ProvinceInfo getProvinceInfo() {
-        return provinceInfo;
-    }
-
-    public void setProvinceInfo(ProvinceInfo provinceInfo) {
-        this.provinceInfo = provinceInfo;
-    }
-
-    public long getCases() {
-        return cases;
-    }
-
-    public void setCases(long cases) {
-        this.cases = cases;
-    }
-
-    public long getTodayCases() {
-        return todayCases;
-    }
-
-    public void setTodayCases(long todayCases) {
-        this.todayCases = todayCases;
-    }
-
-    public long getDeaths() {
-        return deaths;
-    }
-
-    public void setDeaths(long deaths) {
-        this.deaths = deaths;
-    }
-
-    public long getTodayDeaths() {
-        return todayDeaths;
-    }
-
-    public void setTodayDeaths(long todayDeaths) {
-        this.todayDeaths = todayDeaths;
-    }
-
-    public long getRecovered() {
-        return recovered;
-    }
-
-    public void setRecovered(long recovered) {
-        this.recovered = recovered;
-    }
-
-    public long getActive() {
-        return active;
-    }
-
-    public void setActive(long active) {
-        this.active = active;
-    }
-
-    @Override
-    public String toString() {
-        return "Province{" +
-                "id=" + id +
-                ", province='" + province + '\'' +
-                ", provinceInfo=" + provinceInfo +
-                ", cases=" + cases +
-                ", todayCases=" + todayCases +
-                ", deaths=" + deaths +
-                ", todayDeaths=" + todayDeaths +
-                ", recovered=" + recovered +
-                ", active=" + active +
-                '}';
-    }
 }

@@ -2,19 +2,15 @@ package pe.edu.unac.covidalert.domain.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import pe.edu.unac.covidalert.domain.repository.ProvinceRepository;
 import pe.edu.unac.covidalert.domain.repository.entity.Province;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProvinceServiceImpl implements ProvinceService {
 
     @Autowired
     private ProvinceRepository provinceRepository;
-
 
     @Override
     public List<Province> getAllProvinces() {
@@ -66,8 +62,8 @@ public class ProvinceServiceImpl implements ProvinceService {
     @Override
     public Province updateCase(Long id, Long quantity) {
         Province provinceDB = getProvinceById(id);
-        long todayCases = provinceDB.getTodayCases()+quantity;
-        provinceDB.setTodayCases(todayCases);
+        long actives = provinceDB.getActive()+quantity;
+        provinceDB.setTodayCases(actives);
         return provinceRepository.save(provinceDB);
     }
 }

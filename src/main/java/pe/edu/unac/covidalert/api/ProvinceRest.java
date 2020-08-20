@@ -42,12 +42,12 @@ public class ProvinceRest {
     //-------------------Retrieve Single Province--------------------------------------
     @GetMapping(value = "/provinces/{id}")
     public ResponseEntity<Province> getProvince(@PathVariable Long id){
-        Province customer = service.getProvinceById(id);
-        if(customer==null){
+        Province province = service.getProvinceById(id);
+        if(province==null){
             log.error("Province with id {} not found.", id);
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(customer);
+        return ResponseEntity.ok(province);
     }
 
     //-------------------create a Province---------------------------------------------
@@ -64,7 +64,7 @@ public class ProvinceRest {
     //-------------------Update a province---------------------------------------------
     @PutMapping(value = "/provinces/{id}")
     public ResponseEntity<Province> updateProvince(@PathVariable Long id, @RequestBody Province province){
-        log.info("Updating Customer with id {}", id);
+        log.info("Updating Department with id {}", id);
         Province currentProvince = service.getProvinceById(id);
         if (currentProvince == null){
             log.error("Unable to update. province with id {} not found.", id);

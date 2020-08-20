@@ -1,10 +1,12 @@
 package pe.edu.unac.covidalert.domain.repository.entity;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import lombok.Data;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
+@Data
 public class ProvinceInfo {
 
     @JsonAlias("_id")
@@ -16,36 +18,5 @@ public class ProvinceInfo {
     @JsonAlias("long")
     private double longitude;
 
-    public Long getProvinceId() {
-        return provinceId;
-    }
 
-    public void setProvinceId(Long provinceId) {
-        this.provinceId = provinceId;
-    }
-
-    public double getLatitude() {
-        return latitude;
-    }
-
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
-    }
-
-    public double getLongitude() {
-        return longitude;
-    }
-
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    @Override
-    public String toString() {
-        return "ProvinceInfo{" +
-                "provinceId=" + provinceId +
-                ", latitude=" + latitude +
-                ", longitude=" + longitude +
-                '}';
-    }
 }
